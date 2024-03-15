@@ -423,7 +423,7 @@
 
 <main>
 
-    @yield('body')
+
 </main>
 
 
