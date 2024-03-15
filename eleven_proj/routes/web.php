@@ -12,7 +12,8 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [WebsiteController::class, 'index'])->name('home');
 Route::get('/product/detail', [WebsiteController::class, 'productdetail'])->name('product.detail');
-Route::get('/product/category', [WebsiteController::class, 'bycategoryProduct'])->name('product.bycategory');
+Route::get('/product/category{id}', [WebsiteController::class, 'bycategoryProduct'])->name('product.bycategory');
+Route::get('/product/subCategory/{id}', [WebsiteController::class,'subCategoryProduct'])->name('product.subCategory');
 
 
 Route::get('/add/cart', [CartController::class, 'index'])->name('add.cart');

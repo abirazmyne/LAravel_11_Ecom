@@ -312,7 +312,7 @@
                             <nav id="mobile-menu">
                                 <ul>
                                     <li class="has-dropdown">
-                                        <a href="{{route('product.bycategory')}}">Home</a>
+                                        <a href="">Home</a>
                                         <ul class="tp-submenu">
                                             <li><a href="#">Home Style 1</a></li>
                                             <li><a href="#">Home Style 1</a></li>
@@ -390,241 +390,31 @@
             </div>
         </div>
         <div class="tp-header-side-menu tp-side-menu-5">
+
             <nav  class="tp-category-menu-content">
                 <ul>
+                    @foreach($categories as $category)
                     <li class="has-dropdown">
-                        <a href="{{route('home')}}"><i class="flaticon-watermelon"></i>Home Demos</a>
-
-                        <div class="mega-menu tp-submenu">
-                            <div class="home-menu">
-                                <div class="row row-cols-1 row-cols-lg-3 row-cols-xl-3">
-                                    <div class="col">
-                                        <div class="home-menu-item ">
-                                            <a href="{{route('product.bycategory')}}">
-                                                <div class="home-menu-thumb p-relative fix">
-                                                    <img src="{{asset('/')}}website/assets/img/menu/menu-home-1.jpg" alt="">
-                                                </div>
-                                                <div class="home-menu-content">
-                                                    <h5 class="home-menu-title">Electronics </h5>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="shop.html">
-                            <i class="flaticon-broccoli"></i>
-                            Fresh Vegetables
-                        </a>
-                    </li>
-                    <li>
-                        <a href="shop.html">
-                            <i class="flaticon-cupcake"></i>
-                            Breads & Bakery
-                        </a>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="shop.html">
-                            <i class="flaticon-apple"></i>
-                            Fresh Fruits
-                        </a>
+                        <a class="dropnavlink" href="{{route('product.bycategory', ['id' =>$category->id])}}">{{$category->name}}</a>
 
                         <div class="mega-menu tp-submenu">
 
-                            <div class="mega-menu-left">
-                                <div class="mega-menu-list">
-                                    <ul>
-                                        <li>
-                                            <div class="mega-menu-img">
-                                                <img src="{{asset('/')}}website/assets/img/header/menu/grocery/img-1.png" alt="">
-                                            </div>
-                                            <a href="shop.html" class="mega-menu-title">Fresh Fruits</a>
-                                            <ul>
-                                                <li><a href="shop.html">Apples</a></li>
-                                                <li><a href="shop.html">Bananas</a></li>
-                                                <li><a href="shop.html">Easy Peelers</a></li>
-                                                <li><a href="shop.html">Oranges</a></li>
-                                                <li><a href="shop.html">Lemons & Limes</a></li>
-                                                <li><a href="shop.html">Grapes</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                <div class="home-menu-item">
+                                    @foreach($category->subCategories as $subCategory)
+                                    <a class="dropnavlink" href="{{route('product.subCategory', ['id' =>$subCategory->id])}}">{{$subCategory->name}}</a>
+                                    @endforeach
 
-                                    <ul>
-                                        <li>
-                                            <div class="mega-menu-img">
-                                                <img src="{{asset('/')}}website/assets/img/header/menu/grocery/img-2.png" alt="">
-                                            </div>
-                                            <a href="shop.html" class="mega-menu-title">Fresh Fruits</a>
-                                            <ul>
-                                                <li><a href="shop.html">Pineapple</a></li>
-                                                <li><a href="shop.html">Sobuj Angur</a></li>
-                                                <li><a href="shop.html">Green Grapes</a></li>
-                                                <li><a href="shop.html">Pomegrante</a></li>
-                                                <li><a href="shop.html">Red Grapes</a></li>
-                                                <li><a href="shop.html">Amla</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div class="mega-menu-brand">
-                                    <a href="#">
-                                        <img src="{{asset('/')}}website/assets/img/header/menu/grocery/menu-brand-1.png" alt="">
-                                    </a>
-                                    <a href="#">
-                                        <img src="{{asset('/')}}website/assets/img/header/menu/grocery/menu-brand-2.png" alt="">
-                                    </a>
-                                    <a href="#">
-                                        <img src="{{asset('/')}}website/assets/img/header/menu/grocery/menu-brand-3.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="mega-menu-right" data-bg-color="#F9F9F9">
-                                <h3 class="mega-menu-right-title">Favorite Products</h3>
-                                <div class="menu-shop-item d-flex align-items-center">
-                                    <div class="menu-shop-thumb">
-                                        <a href="product-details.html">
-                                            <img src="{{asset('/')}}website/assets/img/header/menu/grocery/img-3.png" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="menu-shop-content">
-                                        <div class="menu-shop-meta">
-                                       <span>
-                                          <a href="#">Fresh Fruits</a>
-                                       </span>
-                                        </div>
-                                        <h4 class="menu-shop-title">
-                                            <a href="product-details.html">Fresh Avocado</a>
-                                        </h4>
-                                        <div class="menu-shop-price-wrapper">
-                                            <span class="menu-shop-price">$36.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-shop-item d-flex align-items-center">
-                                    <div class="menu-shop-thumb">
-                                        <a href="product-details.html">
-                                            <img src="{{asset('/')}}website/assets/img/header/menu/grocery/img-4.png" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="menu-shop-content">
-                                        <div class="menu-shop-meta">
-                                       <span>
-                                          <a href="#">Fresh Fruits</a>
-                                       </span>
-                                        </div>
-                                        <h4 class="menu-shop-title">
-                                            <a href="product-details.html">Fresh Apple</a>
-                                        </h4>
-                                        <div class="menu-shop-price-wrapper">
-                                            <span class="menu-shop-price">$52.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-shop-item d-flex align-items-center">
-                                    <div class="menu-shop-thumb">
-                                        <a href="product-details.html">
-                                            <img src="{{asset('/')}}website/assets/img/header/menu/grocery/img-5.png" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="menu-shop-content">
-                                        <div class="menu-shop-meta">
-                                       <span>
-                                          <a href="#">Natural</a>
-                                       </span>
-                                        </div>
-                                        <h4 class="menu-shop-title">
-                                            <a href="product-details.html">Marble Coat</a>
-                                        </h4>
-                                        <div class="menu-shop-price-wrapper">
-                                            <span class="menu-shop-price">$28.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="menu-shop-item d-flex align-items-center">
-                                    <div class="menu-shop-thumb">
-                                        <a href="product-details.html">
-                                            <img src="{{asset('/')}}website/assets/img/header/menu/grocery/img-6.png" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="menu-shop-content">
-                                        <div class="menu-shop-meta">
-                                       <span>
-                                          <a href="#">Fresh Fruits</a>
-                                       </span>
-                                        </div>
-                                        <h4 class="menu-shop-title">
-                                            <a href="product-details.html">Fresh Oranges</a>
-                                        </h4>
-                                        <div class="menu-shop-price-wrapper">
-                                            <span class="menu-shop-price">$43.00</span>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <a href="shop.html">
-                            <i class="flaticon-fish"></i>
-                            Meat & Fish
-                        </a>
-                    </li>
-                    <li>
-                        <a href="shop.html">
-                            <i class="flaticon-snack"></i>
-                            Chips & Snacks
-                        </a>
-                    </li>
-                    <li>
-                        <a href="shop.html">
-                            <i class="flaticon-eggs"></i>
-                            Dairy & Eggs
-                        </a>
-                    </li>
-                    <li>
-                        <a href="shop.html">
-                            <i class="flaticon-bread"></i>
-                            Grocery
-                        </a>
-                    </li>
-                    <li>
-                        <a href="shop.html">
-                            <i class="flaticon-coffee"></i>
-                            Beverages
-                        </a>
-                    </li>
-                    <li>
-                        <a href="shop.html">
-                            <i class="flaticon-pet"></i>
-                            Beverages
-                        </a>
-                    </li>
-                    <li>
-                        <a href="shop.html">
-                            <i class="flaticon-basketball-match"></i>
-                            Toys & Sports
-                        </a>
-                    </li>
-                    <li>
-                        <a href="shop.html">
-                            <i class="flaticon-milk"></i>
-                            Milk & Cream
-                        </a>
-                    </li>
-                    <li>
-                        <a href="shop.html">
-                            <i class="flaticon-vegan"></i>
-                            Baby & Toddler
-                        </a>
-                    </li>
+                    @endforeach
+
+
+
                 </ul>
             </nav>
+
+
         </div>
     </div>
 </header>
