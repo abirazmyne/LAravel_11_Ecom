@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('subcategory_id');
             $table->integer('brand_id');
             $table->integer('unit_id');
+            $table->integer('supplier_id')->nullable();
             $table->string('name');
             $table->string('code');
             $table->integer('stock_amount');

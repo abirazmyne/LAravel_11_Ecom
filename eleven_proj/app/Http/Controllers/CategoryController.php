@@ -22,7 +22,6 @@ class CategoryController extends Controller
         } else {
             return back()->with('message', 'Please input your data correctly.');
         }
-
     }
 
     public function manage()
